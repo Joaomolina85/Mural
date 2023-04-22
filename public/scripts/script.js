@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function updaterPost() {
-    fetch("http://localhost:3000/api/all").then(res => { return res.json() }).then(json => {
+    fetch("https://mural-psi.vercel.app/api/all").then(res => { return res.json() }).then(json => {
         // console.log(json);
 
         let postElements = "";
@@ -25,6 +25,29 @@ function updaterPost() {
     })
     
 }
+// function updaterPost() {
+//     fetch("https://localhost:3000/api/all").then(res => { return res.json() }).then(json => {
+//         // console.log(json);
+
+//         let postElements = "";
+//         let posts = JSON.parse(json);
+//         // console.log(posts);
+//         posts.forEach((post) => {
+//         let postElement = `<div id=${post.id} class="card mb-4">
+//                                 <div class="card-header">
+//                                     <h5 class="card-title">${post.title}</h5>
+//                                 </div>
+//                                 <div class="card-body">
+//                                     <div class="card-text">${post.description}
+//                                     </div>
+//                                 </div>`
+//             postElements += postElement;
+//         })
+
+//         document.getElementById("posts").innerHTML = postElements;
+//     })
+    
+// }
 
 function newPost() {
     let title  = document.getElementById("title").value;
@@ -37,7 +60,7 @@ function newPost() {
         body: JSON.stringify(post)
     }
 
-    fetch("http://localhost:3000/api/new", options).then(res=>{console.log(res)})
+    fetch("https://mural-psi.vercel.app/api/new", options).then(res=>{console.log(res)})
     
     updaterPost();
     
@@ -45,3 +68,22 @@ function newPost() {
     document.getElementById("desc").value = "";
 
 }
+// function newPost() {
+//     let title  = document.getElementById("title").value;
+//     let description = document.getElementById("desc").value;
+
+//     let post = {title,description};
+//     const options = {
+//         method: "POST",
+//         headers: new Headers({'content-type':'application/json'}),
+//         body: JSON.stringify(post)
+//     }
+
+//     fetch("https://localhost:3000/api/new", options).then(res=>{console.log(res)})
+    
+//     updaterPost();
+    
+//     document.getElementById("title").value = "";
+//     document.getElementById("desc").value = "";
+
+// }

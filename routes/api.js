@@ -4,7 +4,7 @@ const cors  = require('cors');
 const posts = require('../model/posts');
 const router = express.Router();
 const options ={
-    origin: 'http://192.168.0.15:3000'
+    origin: 'http://localhost:3000'
 }
 
 router.get("/all", (req,res)=>{
